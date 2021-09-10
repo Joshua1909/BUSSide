@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
 import struct
 import os
@@ -16,6 +16,7 @@ if len(sys.argv) != 2:
     sys.exit(0)
 
 device = sys.argv[1]
+
 
 def printHelp():
     print("+++ The BUSSide accepts the following commands")
@@ -46,6 +47,7 @@ def printHelp():
     print("+++ > quit")
     print("+++")
 
+
 def doCommand(command):
     if command.find("spi ") == 0:
         return bs_spi.doCommand(command[4:])
@@ -59,6 +61,7 @@ def doCommand(command):
         return -1
     else:
         return None
+
 
 try:
     with open("/tmp/BUSSide.seq", "rb") as f:
@@ -77,7 +80,7 @@ if rv is None:
     sys.exit(1)
 
 print("+++")
-print("+++ Welcome to the BUSSide")
+print("+++ Welcome to the BUSSide edited by tim")
 print("+++ By Dr Silvio Cesare of InfoSect")
 print("+++")
 printHelp()
@@ -85,7 +88,7 @@ print("+++")
 
 while True:
     try:
-        command = raw_input("> ")
+        command = input("> ")
     except:
         break
     rv = doCommand(command)
